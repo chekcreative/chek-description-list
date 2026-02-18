@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`chek/description-details save snapshot matches expected output 1`] = `"<dd class="wp-block-mock"><span>Snapshot Description</span></dd>"`;

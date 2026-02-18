@@ -1,0 +1,27 @@
+/**
+ * Frontend + editor styles for the description list block.
+ * Minimal sensible defaults — easily overridable by themes.
+ */
+.wp-block-chek-description-list {
+	margin-block-start: 0;
+	margin-block-end: 1em;
+
+	dt {
+		font-weight: 600;
+	}
+
+	dd {
+		margin-inline-start: 2rem;
+		margin-block-end: 0.5em;
+		margin-block-start: 0;
+
+		&:last-child {
+			margin-block-end: 0;
+		}
+	}
+
+	/* Visual grouping: add extra space before a dt that follows a dd */
+	dd + dt {
+		margin-block-start: 1em;
+	}
+}

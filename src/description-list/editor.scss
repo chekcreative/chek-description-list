@@ -1,0 +1,9 @@
+/**
+ * Editor-only styles for visual cues while editing.
+ */
+.wp-block-chek-description-list {
+	/* Subtle left border to visually group the list in the editor */
+	border-inline-start: 3px solid currentColor;
+	padding-inline-start: 1em;
+	opacity: 0.95;
+}

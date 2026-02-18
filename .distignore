@@ -1,0 +1,13 @@
+# Files and directories excluded from the distribution zip.
+# Used by the build:zip script.
+
+.distignore
+.gitignore
+.git/
+node_modules/
+src/
+tests/
+jest.config.js
+package.json
+package-lock.json
+*.zip

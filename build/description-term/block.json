@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "chek/description-term",
+  "version": "1.0.0",
+  "title": "Description Term",
+  "category": "text",
+  "icon": "editor-bold",
+  "description": "A term (dt) within a description list.",
+  "textdomain": "chek-description-list",
+  "parent": [
+    "chek/description-list"
+  ],
+  "attributes": {
+    "content": {
+      "type": "rich-text",
+      "source": "rich-text",
+      "selector": "dt",
+      "role": "content"
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "color": {
+      "text": true,
+      "background": true,
+      "link": true
+    },
+    "typography": {
+      "fontSize": true,
+      "__experimentalFontWeight": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "html": false,
+    "reusable": false
+  },
+  "editorScript": "file:./index.js"
+}

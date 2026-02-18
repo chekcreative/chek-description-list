@@ -1,0 +1,22 @@
+{
+	"name": "chek-description-list",
+	"version": "1.0.0",
+	"description": "Gutenberg blocks for semantic description lists (dl/dt/dd).",
+	"author": "Chek",
+	"license": "GPL-2.0-or-later",
+	"main": "build/description-list/index.js",
+	"scripts": {
+		"build": "wp-scripts build --webpack-src-dir=src --output-path=build",
+		"start": "wp-scripts start --webpack-src-dir=src --output-path=build",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"test": "wp-scripts test-unit-js --config jest.config.js",
+		"test:watch": "wp-scripts test-unit-js --config jest.config.js --watch",
+		"build:zip": "npm run build && mkdir -p dist && rm -f dist/chek-description-list.zip && cd .. && zip -r chek-description-list/dist/chek-description-list.zip chek-description-list -x 'chek-description-list/node_modules/*' 'chek-description-list/src/*' 'chek-description-list/tests/*' 'chek-description-list/dist/*' 'chek-description-list/.git/*' 'chek-description-list/.gitignore' 'chek-description-list/.distignore' 'chek-description-list/jest.config.js' 'chek-description-list/package.json' 'chek-description-list/package-lock.json' 'chek-description-list/.DS_Store'"
+	},
+	"devDependencies": {
+		"@testing-library/react": "^14.0.0",
+		"@wordpress/scripts": "^30.0.0"
+	}
+}
