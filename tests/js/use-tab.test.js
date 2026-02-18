@@ -243,4 +243,66 @@ describe( 'useTab', () => {
 
 		expect( mockReplaceBlock ).not.toHaveBeenCalled();
 	} );
+
+	// --- Empty blocks ---
+
+	it( 'transforms an empty DT to DD on Tab (no cursor-at-start check needed)', () => {
+		setupMocks( { content: '' } );
+		callHookAndAttach( 'chek/description-term' );
+		// Do NOT place a cursor — the element is empty, so there is
+		// no text node for the browser to anchor a selection in.
+		pressTab();
+
+		expect( createBlock ).toHaveBeenCalledWith(
+			'chek/description-details',
+			{ content: '' }
+		);
+		expect( mockReplaceBlock ).toHaveBeenCalledWith(
+			CLIENT_ID,
+			expect.objectContaining( {
+				name: 'chek/description-details',
+			} )
+		);
+	} );
+
+	it( 'transforms an empty DD to DT on Shift+Tab (no cursor-at-start check needed)', () => {
+		setupMocks( { content: '' } );
+		callHookAndAttach( 'chek/description-details' );
+		pressTab( { shiftKey: true } );
+
+		expect( createBlock ).toHaveBeenCalledWith(
+			'chek/description-term',
+			{ content: '' }
+		);
+		expect( mockReplaceBlock ).toHaveBeenCalledWith(
+			CLIENT_ID,
+			expect.objectContaining( {
+				name: 'chek/description-term',
+			} )
+		);
+	} );
+
+	it( 'transforms a DT with null content on Tab', () => {
+		setupMocks( { content: null } );
+		callHookAndAttach( 'chek/description-term' );
+		pressTab();
+
+		expect( mockReplaceBlock ).toHaveBeenCalled();
+	} );
+
+	it( 'transforms a DT with rich-text empty object content on Tab', () => {
+		setupMocks( { content: { text: '' } } );
+		callHookAndAttach( 'chek/description-term' );
+		pressTab();
+
+		expect( mockReplaceBlock ).toHaveBeenCalled();
+	} );
+
+	it( 'prevents default when transforming an empty block', () => {
+		setupMocks( { content: '' } );
+		callHookAndAttach( 'chek/description-term' );
+		const event = pressTab();
+
+		expect( event.defaultPrevented ).toBe( true );
+	} );
 } );
