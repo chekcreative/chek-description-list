@@ -1,5 +1,7 @@
 # Chek Description List
 
+![A plugin walkthrough showcasing creating and editing a Description List in the Gutenberg Editor](https://db.chekcreative.com/storage/v1/object/public/assets/gifs/chekcreative-chek-description-list.gif)
+
 Gutenberg blocks for semantic HTML description lists (`<dl>`, `<dt>`, `<dd>`).
 
 WordPress doesn't ship a native block for description lists. This plugin adds one — three blocks that nest together to produce valid, accessible `<dl>` markup.

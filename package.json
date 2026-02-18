@@ -1,6 +1,6 @@
 {
 	"name": "chek-description-list",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Gutenberg blocks for semantic description lists (dl/dt/dd).",
 	"author": "Chek",
 	"license": "GPL-2.0-or-later",
@@ -13,7 +13,11 @@
 		"lint:js": "wp-scripts lint-js",
 		"test": "wp-scripts test-unit-js --config jest.config.js",
 		"test:watch": "wp-scripts test-unit-js --config jest.config.js --watch",
-		"build:zip": "npm run build && mkdir -p dist && rm -f dist/chek-description-list.zip && cd .. && zip -r chek-description-list/dist/chek-description-list.zip chek-description-list -x 'chek-description-list/node_modules/*' 'chek-description-list/src/*' 'chek-description-list/tests/*' 'chek-description-list/dist/*' 'chek-description-list/.git/*' 'chek-description-list/.gitignore' 'chek-description-list/.distignore' 'chek-description-list/jest.config.js' 'chek-description-list/package.json' 'chek-description-list/package-lock.json' 'chek-description-list/.DS_Store'"
+		"bump": "bash scripts/version-bump.sh",
+		"bump:patch": "bash scripts/version-bump.sh patch",
+		"bump:minor": "bash scripts/version-bump.sh minor",
+		"bump:major": "bash scripts/version-bump.sh major",
+		"build:zip": "npm run build && mkdir -p dist && rm -f dist/chek-description-list.zip && cd .. && zip -r chek-description-list/dist/chek-description-list.zip chek-description-list -x 'chek-description-list/node_modules/*' 'chek-description-list/src/*' 'chek-description-list/tests/*' 'chek-description-list/dist/*' 'chek-description-list/.git/*' 'chek-description-list/.gitignore' 'chek-description-list/.distignore' 'chek-description-list/jest.config.js' 'chek-description-list/package.json' 'chek-description-list/package-lock.json' 'chek-description-list/.DS_Store' 'chek-description-list/scripts/*'"
 	},
 	"devDependencies": {
 		"@testing-library/react": "^14.0.0",

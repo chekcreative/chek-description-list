@@ -51,6 +51,25 @@ function isCursorAtStart( element ) {
 }
 
 /**
+ * Check whether the block's content attribute is empty.
+ *
+ * Handles the three content shapes Gutenberg may use: falsy values,
+ * plain strings, and rich-text objects with a `.text` property.
+ *
+ * @param {Object} block The block object from the store.
+ * @return {boolean} True when the block has no meaningful content.
+ */
+function isBlockEmpty( block ) {
+	const content = block?.attributes?.content;
+	return (
+		! content ||
+		( typeof content === 'string' && content.trim() === '' ) ||
+		( typeof content === 'object' &&
+			( content.text || '' ).trim() === '' )
+	);
+}
+
+/**
  * Tab / Shift+Tab to transform between DT and DD.
  *
  *   - Tab on a DT (cursor at start) → transform to DD.
@@ -88,16 +107,20 @@ export default function useTab( clientId, blockName ) {
 				return;
 			}
 
-			if ( ! isCursorAtStart( element ) ) {
-				return;
-			}
-
-			event.preventDefault();
-
 			const block = getBlock( clientId );
 			if ( ! block ) {
 				return;
 			}
+
+			// When the block is empty there is no text node for the
+			// browser to anchor a selection in, so `isCursorAtStart`
+			// can return false even though the caret is logically at
+			// position 0.  Skip the cursor check for empty blocks.
+			if ( ! isBlockEmpty( block ) && ! isCursorAtStart( element ) ) {
+				return;
+			}
+
+			event.preventDefault();
 
 			const targetBlockName = isDT
 				? 'chek/description-details'
