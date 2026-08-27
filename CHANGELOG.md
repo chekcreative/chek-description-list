@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.1 — 2026-02-18
+
+### Bug Fixes
+
+- Fix Tab / Shift+Tab not transforming between DT and DD when the block is empty
+
+### Dev
+
+- Add `npm run bump:{patch,minor,major}` scripts to automate version bumps across `package.json` and plugin header
+
 ## 1.0.0 — 2026-02-18
 
 Initial release.

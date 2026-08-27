@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Chek Description List
  * Description:       Gutenberg blocks for semantic description lists (dl/dt/dd).
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.7
  * Requires PHP:      7.4
  * Author:            Chek
